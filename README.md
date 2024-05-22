@@ -1,5 +1,11 @@
 # Resaltador de sintaxis
 
+## Equipo
+
+- Fausto Jiménez de la Cuesta Vallejo A01027983
+- Miguel Enrique Soria A01028033
+- José Antonio González Martínez A01028517
+
 ## Descripción de la evidencia 1
 
 1. Selecciona un lenguaje de programación que te resulte familiar, y determina 
