@@ -27,3 +27,82 @@
     en los puntos 7 y 8. Agrega además una breve reflexión sobre las 
     implicaciones éticas que el tipo de tecnología que desarrollaste pudiera 
     tener en la sociedad.
+
+
+${\texttt{\color{red}[High]}}$\
+${\texttt{\color{orange}[Mid]}}$\
+${\texttt{\color{green}[Low]}}$\
+${\texttt{\color{magenta}[All Sprints]}}$
+
+- Symbols: 
+    - [
+    - ]
+    - (
+    - )
+    - {
+    - }
+
+- Operators (Combinations implicit such as <=, +=) and semicolon (idk why):
+    - \+
+    - \-
+    - \*
+    - /
+    - ^
+    - =
+    - <
+    - \>
+    - %
+    - !=
+    - ;
+    - and
+    - or
+    - not
+
+- Reserved Words and keys
+    - ""
+    - ''
+    - :
+    - if
+    - else
+    - elif
+    - for
+    - while
+    - with
+    - as
+    - def
+    - in
+    - class
+    - import
+    - .
+    - ,
+- Datatypes 
+    - int
+    - float
+    - complex
+    - str
+    - list
+    - tuple
+    - range
+    - dict
+    - set
+    - frozenset
+    - bool
+    - bytes
+    - bytearray
+    - memoryview
+
+- Function definition and exceptions:
+    - function name until opening parentheses
+    - range
+    - memoryview
+    - print
+
+- Variables and function calls
+    - Variable declarations (asvsdv y un =)
+    - functname(lo de aqui sigue los colores del highlighter dependiendo de lo que sea)
+
+- Comments and multiline comments
+
+- Characters inside a string
+
+- Integers and Real Numbers (Including things like 1.3e-8 @JoseGlezMtz )
