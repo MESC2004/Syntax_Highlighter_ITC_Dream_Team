@@ -27,6 +27,7 @@ def lexer(filename: str):
     estado = 0
     columna = 0
     index = 0
+    html = ""
 
     while (file[index] != "$" or (file[index] == "$" and estado != 0)) and (
         estado != 21
@@ -66,54 +67,66 @@ def lexer(filename: str):
         estado = tabla[estado][col]
         if estado == 9:
             print(lexema + " INT")
+            html += '<font color="red">' + lexema + "</font>"
             estado = 0
             lexema = ""
             index -= 1
         elif estado == 10:
             print(lexema + " REAL")
+            html += '<font color="blue">' + lexema + "</font>"
             estado = 0
             lexema = ""
             index -= 1
         elif estado == 11:
             print("+" + " SUMA")
+            html += '<font color="purple">' + "+" + "</font>"
             estado = 0
             lexema = ""
         elif estado == 12:
             print("-" + " RESTA")
+            html += '<font color="purple">' + "-" + "</font>"
             estado = 0
             lexema = ""
         elif estado == 13:
             print("*" + " MULTIPLICACION")
+            html += '<font color="purple">' + "*" + "</font>"
             estado = 0
             lexema = ""
         elif estado == 14:
             print("(" + " PARENTESIS ABRE")
+            html += '<font color="purple">' + "(" + "</font>"
             estado = 0
             lexema = ""
         elif estado == 15:
             print(")" + " PARENTESIS CIERRA")
+            html += '<font color="purple">' + ")" + "</font>"
             estado = 0
             lexema = ""
         elif estado == 16:
             print(lexema + " VARIABLE")
+            html += '<font color="orange">' + lexema + "</font>"
             estado = 0
             lexema = ""
             index -= 1
         elif estado == 17:
             print(lexema + " COMENTARIO")
+            html += '<font color="brown">' + lexema + "</font>"
             estado = 0
             lexema = ""
         elif estado == 18:
             print("/" + " DIVISION")
+            html += '<font color="purple">' + "/" + "</font>"
             estado = 0
             lexema = ""
             index -= 1
         elif estado == 19:
             print("^" + " POTENCIA")
+            html += '<font color="purple">' + "^" + "</font>"
             estado = 0
             lexema = ""
         elif estado == 20:
             print("=" + " ASIGNACION")
+            html += '<font color="purple">' + "=" + "</font>"
             estado = 0
             lexema = ""
         elif estado == 21:
@@ -123,3 +136,14 @@ def lexer(filename: str):
 
         if estado != 0:
             lexema += char
+
+    return html
+
+
+def main():
+    with open("lexer.html", "w") as html:
+        html.write(lexer("lexer.py"))
+
+
+if __name__ == "__main__":
+    main()
