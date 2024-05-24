@@ -58,9 +58,7 @@ ${\texttt{\color{magenta}[All Sprints]}}$
     - or
     - not
 
-- Reserved Words and keys
-    - ""
-    - ''
+- Reserved Words and keys:
     - :
     - if
     - else
@@ -102,5 +100,5 @@ ${\texttt{\color{magenta}[All Sprints]}}$
     - '...'
 
 
-- Integers and Real Numbers (Including things like 1.3e-8 @JoseGlezMtz )
+- Integers and Real Numbers 
       - All with digits and followed by point
