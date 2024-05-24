@@ -1,3 +1,5 @@
+import re
+
 # Tabla de estados y de inputs
 tabla = [
     [1, 11, 12, 13, 4, 19, 20, 8, 3, 14, 15, 3, 0, 0, 21],
@@ -25,17 +27,12 @@ def lexer(filename: str):
     estado = 0
     columna = 0
     index = 0
-    nums = "0123456789"
-    letras = "abcdfghijklmnopqrstuvwxyzABCDFGHIJKLMNOPQRSTUVWXYZ"
-    blank = " \t$"
 
     while (file[index] != "$" or (file[index] == "$" and estado != 0)) and (
         estado != 21
     ):
         char = file[index]
-        if char in nums:
-            col = 0
-        elif char == "+":
+        if char == "+":
             col = 1
         elif char == "-":
             col = 2
@@ -45,21 +42,23 @@ def lexer(filename: str):
             col = 4
         elif char == "^":
             col = 5
-        elif char == "=":
-            col = 6
-        elif char == ".":
-            col = 7
-        elif char in letras:
-            col = 8
         elif char == "(":
             col = 9
         elif char == ")":
             col = 10
-        elif char in "eE":
+        elif char == "=":
+            col = 6
+        elif char == ".":
+            col = 7
+        elif re.match(r"e|E", char):
             col = 11
-        elif char in "\n$":
+        elif re.match(r"\d", char):
+            col = 0
+        elif re.match(r"\w", char):
+            col = 8
+        elif re.match(r"\n|$", char):
             col = 12
-        elif char in blank:
+        elif re.match(r"\s", char):
             col = 13
         else:
             col = 14
