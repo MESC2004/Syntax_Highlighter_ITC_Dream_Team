@@ -73,8 +73,9 @@ ${\texttt{\color{magenta}[All Sprints]}}$
     - in
     - class
     - import
-    - .
-    - ,
+    - range
+    - print
+      
 - Datatypes 
     - int
     - float
@@ -90,19 +91,16 @@ ${\texttt{\color{magenta}[All Sprints]}}$
     - bytes
     - bytearray
     - memoryview
-
-- Function definition and exceptions:
-    - function name until opening parentheses
-    - range
-    - memoryview
-    - print
+    
 
 - Variables and function calls
     - Variable declarations (asvsdv y un =)
     - functname(lo de aqui sigue los colores del highlighter dependiendo de lo que sea)
 
 - Comments and multiline comments
+    - "..."
+    - '...'
 
-- Characters inside a string
 
 - Integers and Real Numbers (Including things like 1.3e-8 @JoseGlezMtz )
+      - All with digits and followed by point
