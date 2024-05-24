@@ -1,83 +1,80 @@
-# Miguel Soria A01028033
-# 5/10/2024
-
-"""Hacer un programa que reciba como entrada un archivo de texto que contenga 
-expresiones aritméticas y comentarios, y nos regrese una tabla con cada uno de sus tokens encontrados, en el orden en que fueron encontrados e indicando de qué tipo son."""
-
-# GUARDAR EL ARCHIVO EN LA MISMA CARPETA QUE EL PROGRAMA CON NOMBRE archivo.txt o el nombre deseado como string en el parametro FILENAME
-
-
-tabla = [[1,	11,	12,	13,	4,	19,	20,	8,	3,	14,	15,	3,	0,	0,	21],
-         [1,	9,	9,	9,	9,	9,	9,	2,	21,	9,	9,	21,	9,	9,	21],
-         [2,	10,	10,	10,	10,	10,	10,	21,	21,	10,	10,	6,	10,	10,	21],
-         [3,	16,	16,	16,	16,	16,	16,	21,	3,	16,	16,	3,	16,	16,	21],
-         [18, 18, 18,18,	5,	18,	18,	18,	18,	18,	18,	18,	18,	18,	21],
-         [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 17, 5, 5],
-         [6, 21, 7, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21],
-         [2, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21],
-         [2, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21]]
+# Tabla de estados y de inputs
+tabla = [
+    [1, 11, 12, 13, 4, 19, 20, 8, 3, 14, 15, 3, 0, 0, 21],
+    [1, 9, 9, 9, 9, 9, 9, 2, 21, 9, 9, 21, 9, 9, 21],
+    [2, 10, 10, 10, 10, 10, 10, 21, 21, 10, 10, 6, 10, 10, 21],
+    [3, 16, 16, 16, 16, 16, 16, 21, 3, 16, 16, 3, 16, 16, 21],
+    [18, 18, 18, 18, 5, 18, 18, 18, 18, 18, 18, 18, 18, 18, 21],
+    [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 17, 5, 5],
+    [6, 21, 7, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21],
+    [2, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21],
+    [2, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21],
+]
 
 
-def lexerAritmetico(filename):
+def lexer(filename: str):
     """
-    :param filename: nombre del archivo, debe vivir dentro de la misma carpeta que el script
-    :return: Regresa mediante prints los lexemas y sus tokens respectivos a partir del archivo de texto
+    :param filename: string representando el path relativo al archivo .py a
+        leer.
+    :return: string
     """
-    with open(filename, 'r') as file:
-        s = file.read()
+    with open(filename, "r") as f:
+        file = f.read()
 
     lexema = ""
     estado = 0
     columna = 0
-    p = 0
+    index = 0
     nums = "0123456789"
     letras = "abcdfghijklmnopqrstuvwxyzABCDFGHIJKLMNOPQRSTUVWXYZ"
     blank = " \t$"
 
-    while(s[p] != "$" or (s[p] == "$" and estado != 0)) and (estado != 21):
-        c = s[p]
-        if c in nums:
+    while (file[index] != "$" or (file[index] == "$" and estado != 0)) and (
+        estado != 21
+    ):
+        char = file[index]
+        if char in nums:
             col = 0
-        elif c == "+":
+        elif char == "+":
             col = 1
-        elif c == "-":
+        elif char == "-":
             col = 2
-        elif c == "*":
+        elif char == "*":
             col = 3
-        elif c == "/":
+        elif char == "/":
             col = 4
-        elif c == "^":
+        elif char == "^":
             col = 5
-        elif c == "=":
+        elif char == "=":
             col = 6
-        elif c == ".":
+        elif char == ".":
             col = 7
-        elif c in letras:
+        elif char in letras:
             col = 8
-        elif c == "(":
+        elif char == "(":
             col = 9
-        elif c == ")":
+        elif char == ")":
             col = 10
-        elif c in "eE":
+        elif char in "eE":
             col = 11
-        elif c in "\n$":
+        elif char in "\n$":
             col = 12
-        elif c in blank:
+        elif char in blank:
             col = 13
         else:
             col = 14
 
         estado = tabla[estado][col]
         if estado == 9:
-            print(lexema +" INT")
+            print(lexema + " INT")
             estado = 0
             lexema = ""
-            p-=1
+            index -= 1
         elif estado == 10:
             print(lexema + " REAL")
             estado = 0
             lexema = ""
-            p-=1
+            index -= 1
         elif estado == 11:
             print("+" + " SUMA")
             estado = 0
@@ -102,7 +99,7 @@ def lexerAritmetico(filename):
             print(lexema + " VARIABLE")
             estado = 0
             lexema = ""
-            p-=1
+            index -= 1
         elif estado == 17:
             print(lexema + " COMENTARIO")
             estado = 0
@@ -111,7 +108,7 @@ def lexerAritmetico(filename):
             print("/" + " DIVISION")
             estado = 0
             lexema = ""
-            p-=1
+            index -= 1
         elif estado == 19:
             print("^" + " POTENCIA")
             estado = 0
@@ -123,17 +120,7 @@ def lexerAritmetico(filename):
         elif estado == 21:
             print("ERROR")
 
-        p+=1
+        index += 1
 
         if estado != 0:
-            lexema += c
-
-lexerAritmetico("archivo.txt")
-
-
-
-
-
-
-
-
+            lexema += char
