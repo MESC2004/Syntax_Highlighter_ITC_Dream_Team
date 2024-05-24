@@ -95,10 +95,14 @@ ${\texttt{\color{magenta}[All Sprints]}}$
     - Variable declarations (asvsdv y un =)
     - functname(lo de aqui sigue los colores del highlighter dependiendo de lo que sea)
 
-- Comments and multiline comments
+- Strings
     - "..."
     - '...'
 
+- Comments
+    - \# until return
 
+- Multiline Comments
+    - """ ... """
 - Integers and Real Numbers 
       - All with digits and followed by point
