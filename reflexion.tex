@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+
+\title{Evidencia 1. Resaltador de sintaxis}
+\author{Fausto Jiménez de la Cuesta Vallejo A01027983\\
+        Miguel Enrique Soria A01028033\\
+        José Antonio González Martínez A01028517}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introducción}
+En esta entrega se desarrollo un resaaltador de sintáxis básico en el lenguaje 
+de programación Python. La herramienta permite identificar con mayor facilidad 
+las palabras reservadas, operadores, variables, comentarios, etc. El 
+resaltador desarrollado en python toma un archivo \texttt{.py} y lo analiza, 
+generando un archivo \texttt{html} con el código resaltado.
+
+\section{Solución}
+Para realizar el resaltador, se creó un Autómata Finito (AF) que tiene como 
+estados finales los grupos de tokens que llevan un mismo color para generar 
+una tabla de transiciones que pueda ser implementada en un script de Pyhton. 
+En nuestro caso, se utilizó un \texttt{while} loop que a través de el 
+contenido del archivo y el estado en la tabla de estados revisa caracter por 
+caracter el contenido del archivo hasta encontrar un grupo de caracteres que 
+entre dentro de uno de los campos definidos. Utilizando la misma tabla se 
+consigue el estado en el que se encuentra comparando el estado en una posicion 
+dada por el valor \texttt{col} y estado para colorear apropiadamente cada 
+grupo. Todo esto se engloba en la función \texttt{lexer(filename)} que toma 
+como parametro el nombre del archivo \texttt{.py} a analizar como ruta relativa.
+
+\begin{table}
+\centering
+\caption{Tabla de transiciones}
+\label{tab:tabla}
+\begin{tabular}{l l l l l l l l l l l l l l l}
+    \toprule
+    digito	& punto	& letra	& operador	& smbolos especiales	 & '	& " 	& \#	& e/E	& /N	& SPACE \verb|\t|	& Otro \\
+    \midrule
+    1	& 10	& 5	& 13	& 15	& 7	& 8	& 6	& 5	& 9	& 9	& 19 \\
+    1	& 2	& 10	& 10	& 10	& 10	& 10	& 10	& 10	& 10	& 10	& 10 \\
+    2	& 19	& 19	& 12	& 12	& 19	& 19	& 19	& 3	& 12	& 12	& 19 \\
+    4	& 19	& 19	& 4	& 19	& 19	& 19	& 19	& 19	& 19	& 19	& 19 \\
+    4	& 19	& 19	& 12	& 19	& 19	& 19	& 19	& 19	& 12	& 12	& 19 \\
+    5	& 19	& 5	& 13	& 13	& 19	& 19	& 19	& 13	& 13	& 13	& 19 \\
+    6	& 6	& 6	& 6	& 6	& 6	& 6	& 6	& 6	& 15	& 6	& 6 \\
+    7	& 7	& 7	& 7	& 7	& 17	& 7	& 7	& 7	& 19	& 7	& 7 \\
+    8	& 8	& 8	& 8	& 8	& 8	& 18	& 8	& 8	& 19	& 8	& 8 \\
+    18	& 18	& 18	& 18	& 18	& 18	& 18	& 18	& 18	& 9	& 9	& 18 \\
+    2	& 19	& 19	& 19	& 19	& 19	& 19	& 19	& 1	& 19	& 19	& 19 \\
+    0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Complejidad}
+Analizando el proceso utilizado por el DFA para determinar los distintos 
+tokens que se van a estilizar utilizando \texttt{html} únicamente requiere 
+analizar cada caracter del archivo leído una única vez, por lo que la 
+complejidad de la solución planteada es $O(n)$, ya que siempre se debe de 
+analizar todo el archivo por completo.
+
+\section{Reflexión}
+Una de las implementaciones éticas de esta tecnología de análisis sintáctico 
+mediante autómatas determinísticos es el reconocimiento de sentimiento en un 
+texto. Esto se puede aplicar a, por ejemplo, llamadas de emergencia de 911 
+para determinar la urgencia de la llamada en caso de que no hayan agentes de 
+respuesta disponibles, por lo que en lugar de poner la llamada en espera o en 
+grabadora, se puede reaccionar y llenar el reporte mediante un reconocedor de 
+grupos de palabras y así determinare is se necesita una ambulancia, una 
+patrulla, o algun otro tipo de ayuda de emergencia.
+
+\end{document}
