@@ -28,81 +28,77 @@
     implicaciones éticas que el tipo de tecnología que desarrollaste pudiera 
     tener en la sociedad.
 
+## Lexemas y Colores
 
-${\texttt{\color{red}[High]}}$\
-${\texttt{\color{orange}[Mid]}}$\
-${\texttt{\color{green}[Low]}}$\
-${\texttt{\color{magenta}[All Sprints]}}$
+- **Delimiters** (![#6C7D9C](https://placehold.co/15x15/6C7D9C/6C7D9C.png)`#6c7d9c`):
+    - `[`
+    - `]`
+    - `(`
+    - `)`
+    - `{`
+    - `}`
 
-- Symbols: 
-    - [
-    - ]
-    - (
-    - )
-    - {
-    - }
+- Operators (![#C75AE8](https://placehold.co/15x15/C75AE8/C75AE8.png)`#C75AE8`):
+    - `+`
+    - `-`
+    - `*`
+    - `/`
+    - `^`
+    - `=`
+    - `<`
+    - `>`
+    - `%`
+    - `!=`
+    - `;`
+    - `and`
+    - `or`
+    - `not`
 
-- Operators (Combinations implicit such as <=, +=) and semicolon (idk why):
-    - \+
-    - \-
-    - \*
-    - /
-    - ^
-    - =
-    - <
-    - \>
-    - %
-    - !=
-    - ;
-    - and
-    - or
-    - not
-
-- Reserved Words and keys:
-    - :
-    - if
-    - else
-    - elif
-    - for
-    - while
-    - with
-    - as
-    - def
-    - in
-    - class
-    - import
-    - range
-    - print
+- Reserved Words and keys (![#C75AE8](https://placehold.co/15x15/C75AE8/C75AE8.png)`#C75AE8`):
+    - `:`
+    - `if`
+    - `else`
+    - `elif`
+    - `for`
+    - `while`
+    - `with`
+    - `as`
+    - `def`
+    - `in`
+    - `class`
+    - `import`
+    - `range`
+    - `print`
       
-- Datatypes 
-    - int
-    - float
-    - complex
-    - str
-    - list
-    - tuple
-    - range
-    - dict
-    - set
-    - frozenset
-    - bool
-    - bytes
-    - bytearray
-    - memoryview
+- Datatypes (![#EFBD5D](https://placehold.co/15x15/EFBD5D/EFBD5D.png)`#EFBD5D`):
+    - `int`
+    - `float`
+    - `complex`
+    - `str`
+    - `list`
+    - `tuple`
+    - `range`
+    - `dict`
+    - `set`
+    - `frozenset`
+    - `bool`
+    - `bytes`
+    - `bytearray`
+    - `memoryview`
     
 
-- Variables and function calls
+- Variables and function calls (![#F65866](https://placehold.co/15x15/F65866/F65866.png)`#F65866`)
     - Variable declarations (asvsdv y un =)
     - functname(lo de aqui sigue los colores del highlighter dependiendo de lo que sea)
 
-- Strings
-    - "..."
-    - '...'
+- Strings (![#8BCD5B](https://placehold.co/15x15/8BCD5B/8BCD5B.png)`#8BCD5B`)
+    - `"..."`
+    - `'...'`
 
-- Comments
-    - \# until return
+- Comments (![#34BFD0](https://placehold.co/15x15/34BFD0/34BFD0.png)`#34BFD0`)
+    - `#` until return
 
-- Multiline Comments
-    - """ ... """
-- Integers and Real Numbers 
-      - All with digits and followed by point
+- Multiline Comments (![#34BFD0](https://placehold.co/15x15/34BFD0/34BFD0.png)`#34BFD0`)
+    - `""" ... """`
+- Integers and Real Numbers (![#DD9046](https://placehold.co/15x15/DD9046/DD9046.png)`#DD9046`)
+    - All with digits and followed by point
