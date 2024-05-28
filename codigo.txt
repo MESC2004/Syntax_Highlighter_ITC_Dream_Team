@@ -23,10 +23,7 @@ Palabras_reservadas=["if","else","elif","while","for","in","range",
                      "str","bool","list","dict","set","filename"]
 
 operadores = ["+", "-", "*", "/", "^", "="]
-especiales=["(",")","{","}","[","]",",",";",":","@","%","&","|","!","?","<",">"]
-
-variable_test=1.2e-3
-
+especiales=["(",")","{","}","[","]",",",";",":",".","@","%","&","|","!","?","<",">"]
 
 
 def lexer(filename: str):
@@ -40,7 +37,7 @@ def lexer(filename: str):
     index = 0
     html = ""
 
-    while (index<len(file) or (index<len(file) and estado != 0)) and (
+    while (file[index] != "$" or (file[index] == "$" and estado != 0)) and (
         estado != 19
     ):
         char = file[index]
@@ -48,8 +45,6 @@ def lexer(filename: str):
             col = 0
         elif char == ".":
             col = 1
-        elif re.match(r"e|E", char):
-            col = 8
         elif re.match(r"\w", char):
             col = 2
         elif char in operadores:
@@ -62,8 +57,9 @@ def lexer(filename: str):
             col = 6
         elif char == "#":
             col = 7
+        elif re.match(r"e|E", char):
+            col = 8
         elif re.match(r"\n", char):
-            html+= "<br>"
             col = 9
         elif re.match(r"\t| ", char):
             col = 10
@@ -74,14 +70,14 @@ def lexer(filename: str):
         
         if estado == 11:
             print(lexema + " INT")
-            html += '<font color="#DD9046">' + lexema + "</font>"
+            html += '<font color="red">' + lexema + "</font>"
             estado = 0
             lexema = ""
             index -= 1
             
         elif estado == 12:
             print(lexema + " REAL")
-            html += '<font color="#DD9046">' + lexema + "</font>"
+            html += '<font color="blue">' + lexema + "</font>"
             estado = 0
             lexema = ""
             index -= 1
@@ -89,10 +85,10 @@ def lexer(filename: str):
         elif estado == 13:
             if lexema in Palabras_reservadas:
                 print(lexema + " PALABRA RESERVADA")
-                html += '<font color="#0AA9BA">' + lexema + "</font>"
+                html += '<font color="green">' + lexema + "</font>"
             else:
                 print(lexema + " VARIABLE")
-                html += '<font color="#F65866">' + lexema + "</font>"
+                html += '<font color="light blue">' + lexema + "</font>"
             index -= 1
             estado = 0
             lexema = ""
@@ -101,13 +97,13 @@ def lexer(filename: str):
             lexema+=char
             print(lexema+ " Operador")
             
-            html += '<font color="#C75AE8">' + lexema + "</font>"
+            html += '<font color="purple">' + lexema + "</font>"
             estado = 0
             lexema = ""
             
         elif estado == 15:
             print(lexema + " comentario")
-            html += '<font color="#34BFD0">' + lexema + "</font>"
+            html += '<font color="pink">' + lexema + "</font>"
             estado = 0
             index -= 1
             lexema = ""
@@ -115,20 +111,19 @@ def lexer(filename: str):
         elif estado == 16:
             print(lexema+ " Especial")
             lexema+=char
-            html += '<font color="#6c7d9c">' + lexema + "</font>"
+            html += '<font color="yellow">' + lexema + "</font>"
             estado = 0
             lexema = ""
             
         elif estado == 17:
             print(lexema + " String")
-            lexema+=char
-            html += '<font color="#8BCD5B">' + lexema + "</font>"
+            html += '<font color="orange">' + lexema + "</font>"
             estado = 0
             lexema = ""
             
         elif estado == 18:
             print(lexema + " blank space")
-            html += lexema
+            html += "<font>" + lexema + "</font>"
             estado = 0
             index -= 1
             lexema = ""
