@@ -63,7 +63,7 @@ def lexer(filename: str):
         elif char == "#":
             col = 7
         elif re.match(r"\n", char):
-            html+= "<br>"
+            #html+= "<br>"
             col = 9
         elif re.match(r"\t| ", char):
             col = 10
@@ -72,7 +72,11 @@ def lexer(filename: str):
 
         estado = tabla[estado][col]
         
-        if estado == 11:
+        if estado == 9:
+            if char == "\n":
+                html += "<br>"
+                
+        elif estado == 11:
             print(lexema + " INT")
             html += '<font color="#DD9046">' + lexema + "</font>"
             estado = 0
