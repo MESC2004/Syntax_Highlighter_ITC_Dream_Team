@@ -25,10 +25,13 @@ def get_files(path):
                 f2=open(f"{fichero.name}.html","w")
                 f2.write(lexer(os.path.join(path, fichero.name)))
                 f2.close()
-                
-if __name__=="__main__":
+
+def main():
     ti=time.perf_counter()
     get_files(os.path.join(os.getcwd(), "Test_Code"))
     tf=time.perf_counter()
     print(f"Time elapsed: {tf-ti} seconds")
-    
+
+
+if __name__ == "__main__":
+    main()
