@@ -11,7 +11,7 @@ import os
 import time
 from lexer import lexer
 
-ejemplo_dir = '/Users/jagle/OneDrive/Escritorio/Directorios/Syntax_Highlighter_ITC_Dream_Team/Code/Test_Code'
+
 def get_files(path):
    
     with os.scandir(path) as ficheros:
@@ -28,7 +28,7 @@ def get_files(path):
                 
 if __name__=="__main__":
     ti=time.perf_counter()
-    get_files(ejemplo_dir)
+    get_files(os.path.join(os.getcwd(), "Test_Code"))
     tf=time.perf_counter()
     print(f"Time elapsed: {tf-ti} seconds")
     
