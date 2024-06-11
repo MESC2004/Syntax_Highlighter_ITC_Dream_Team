@@ -14,6 +14,7 @@ from lexer import lexer
 
 
 def get_files(path):
+    """Recursivamente navegar el path y resaltar los archivos .py"""
     with os.scandir(path) as ficheros:
         for fichero in ficheros:
             if fichero.is_dir():
