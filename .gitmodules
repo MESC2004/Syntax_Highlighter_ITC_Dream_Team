@@ -1,0 +1,6 @@
+[submodule "Code/Code/Test_Code"]
+	path = Code/Code/Test_Code
+	url = https://github.com/BassedWarrior/Computacion-Avanzada
+[submodule "Code/Test_Code"]
+	path = Code/Test_Code
+	url = https://github.com/BassedWarrior/Computacion-Avanzada
