@@ -21,8 +21,8 @@ def get_files(path):
                 get_files(os.path.join(path, fichero.name))
 
             elif fichero.is_file() and fichero.name.endswith(".py"):
-                f2 = open(f"{fichero.name.removesuffix('.py')}.html", "w")
-                f2.write(lexer(os.path.join(path, fichero.name)))
+                f2 = open(f"{fichero.path.removesuffix('.py')}.html", "w")
+                f2.write(lexer(fichero.path))
                 f2.close()
 
 
