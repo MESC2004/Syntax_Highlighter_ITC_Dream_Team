@@ -123,9 +123,9 @@ def lexer(filename: str):
             col = 8
         elif re.match(r"\w", char):
             col = 2
-        elif char in operadores:
+        elif char in OPERADORES:
             col = 3
-        elif char in especiales:
+        elif char in ESPECIALES:
             col = 4
         elif char == "'":
             col = 5
@@ -141,7 +141,7 @@ def lexer(filename: str):
         else:
             col = 11
 
-        estado = tabla[estado][col]
+        estado = TABLA[estado][col]
 
         if estado == 9:
             if char == "\n":
@@ -162,7 +162,7 @@ def lexer(filename: str):
             index -= 1
 
         elif estado == 13:
-            if lexema in Palabras_reservadas:
+            if lexema in PALABRAS_RESERVADAS:
                 print(lexema + " PALABRA RESERVADA")
                 html += '<font color="#0AA9BA">' + lexema + "</font>"
             else:
