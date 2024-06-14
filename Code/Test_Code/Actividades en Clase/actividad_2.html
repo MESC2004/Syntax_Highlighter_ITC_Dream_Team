@@ -1,0 +1,30 @@
+<font color="#34BFD0"># Programa que pide un input al usuario de su año de nacimiento y</font><br>
+<font color="#34BFD0"># regresa la edad del usuario de acuerda al año en el que nació.</font><br><br>
+
+<font color="#34BFD0"># 1 - Recibir input año de nacimiento del usuario</font><br>
+<font color="#34BFD0"># 2 - Convertir input año de nacimiento a int</font><br>
+<font color="#F65866">birth_y</font><font color="#F65866">ear</font> <font color="#C75AE8">=</font> <font color="#0AA9BA">int</font><font color="#6c7d9c">(</font><font color="#F65866">input</font><font color="#6c7d9c">(</font><font color="#8BCD5B">"En qué año naciste? "</font><font color="#6c7d9c">)</font><font color="#6c7d9c">)</font><br><br>
+
+<font color="#34BFD0"># 3 - Hacer resta del año actual (2024) al año de nacimiento</font><br>
+<font color="#34BFD0"># 4 - Imprimir mensaje con edad del usuario</font><br>
+<font color="#F65866">CURR</font><font color="#F65866">ENT_Y</font><font color="#F65866">EAR</font> <font color="#C75AE8">=</font> <font color="#DD9046">2024</font><br><br>
+
+<font color="#F65866">ag</font><font color="#F65866">e</font> <font color="#C75AE8">=</font> <font color="#F65866">CURR</font><font color="#F65866">ENT_Y</font><font color="#F65866">EAR</font> <font color="#C75AE8">-</font> <font color="#F65866">birth_y</font><font color="#F65866">ear</font><br><br>
+
+<font color="#0AA9BA">if</font> <font color="#F65866">ag</font><font color="#F65866">e</font> <font color="#6c7d9c">></font><font color="#C75AE8">=</font> <font color="#DD9046">0</font><font color="#6c7d9c">:</font><br>
+    <font color="#0AA9BA">print</font><font color="#6c7d9c">(</font><font color="#8BCD5B">"Tienes "</font> <font color="#C75AE8">+</font> <font color="#0AA9BA">str</font><font color="#6c7d9c">(</font><font color="#F65866">ag</font><font color="#F65866">e</font><font color="#6c7d9c">)</font> <font color="#C75AE8">+</font> <font color="#8BCD5B">" años"</font><font color="#6c7d9c">)</font><br>
+<font color="#F65866">els</font><font color="#F65866">e</font><font color="#6c7d9c">:</font>  <font color="#34BFD0"># age < 0</font><br>
+    <font color="#0AA9BA">print</font><font color="#6c7d9c">(</font><font color="#8BCD5B">"Pon tu fecha correcta de nacimiento"</font><font color="#6c7d9c">)</font><br><br>
+
+<font color="#34BFD0"># Es mayor a 18?</font><br>
+<font color="#0AA9BA">if</font> <font color="#F65866">ag</font><font color="#F65866">e</font> <font color="#6c7d9c">></font><font color="#C75AE8">=</font> <font color="#DD9046">18</font><font color="#6c7d9c">:</font><br>
+    <font color="#0AA9BA">print</font><font color="#6c7d9c">(</font><font color="#8BCD5B">"Eres mayor de edad!"</font><font color="#6c7d9c">)</font><br>
+<font color="#34BFD0"># Es mayor o igual a 10?</font><br>
+<font color="#0AA9BA">elif</font> <font color="#F65866">ag</font><font color="#F65866">e</font> <font color="#6c7d9c">></font><font color="#C75AE8">=</font> <font color="#DD9046">10</font><font color="#6c7d9c">:</font><br>
+    <font color="#0AA9BA">print</font><font color="#6c7d9c">(</font><font color="#8BCD5B">"Eres menor de edad!"</font><font color="#6c7d9c">)</font><br>
+<font color="#34BFD0"># Es mayor o igual a 0?</font><br>
+<font color="#0AA9BA">elif</font> <font color="#F65866">ag</font><font color="#F65866">e</font> <font color="#6c7d9c">></font><font color="#C75AE8">=</font> <font color="#DD9046">0</font><font color="#6c7d9c">:</font><br>
+    <font color="#0AA9BA">print</font><font color="#6c7d9c">(</font><font color="#8BCD5B">"Tu edad aún tiene solo un dígito"</font><font color="#6c7d9c">)</font><br>
+<font color="#34BFD0"># Es menor a 0?</font><br>
+<font color="#F65866">els</font><font color="#F65866">e</font><font color="#6c7d9c">:</font>  <font color="#34BFD0"># age < 0</font><br>
+    <font color="#0AA9BA">print</font><font color="#6c7d9c">(</font><font color="#8BCD5B">"Felicidades! Todavía no naces!"</font><font color="#6c7d9c">)</font><br>

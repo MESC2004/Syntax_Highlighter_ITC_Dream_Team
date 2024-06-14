@@ -148,14 +148,14 @@ def lexer(filename: str):
                 html += "<br>"
 
         elif estado == 11:
-            print(lexema + " INT")
+            #print(lexema + " INT")
             html += '<font color="#DD9046">' + lexema + "</font>"
             estado = 0
             lexema = ""
             index -= 1
 
         elif estado == 12:
-            print(lexema + " REAL")
+            #print(lexema + " REAL")
             html += '<font color="#DD9046">' + lexema + "</font>"
             estado = 0
             lexema = ""
@@ -163,10 +163,10 @@ def lexer(filename: str):
 
         elif estado == 13:
             if lexema in PALABRAS_RESERVADAS:
-                print(lexema + " PALABRA RESERVADA")
+                #print(lexema + " PALABRA RESERVADA")
                 html += '<font color="#0AA9BA">' + lexema + "</font>"
             else:
-                print(lexema + " VARIABLE")
+                #print(lexema + " VARIABLE")
                 html += '<font color="#F65866">' + lexema + "</font>"
             index -= 1
             estado = 0
@@ -174,42 +174,43 @@ def lexer(filename: str):
 
         elif estado == 14:
             lexema += char
-            print(lexema + " Operador")
+            #print(lexema + " Operador")
 
             html += '<font color="#C75AE8">' + lexema + "</font>"
             estado = 0
             lexema = ""
 
         elif estado == 15:
-            print(lexema + " comentario")
+            #print(lexema + " comentario")
             html += '<font color="#34BFD0">' + lexema + "</font>"
             estado = 0
             index -= 1
             lexema = ""
 
         elif estado == 16:
-            print(lexema + " Especial")
+            #print(lexema + " Especial")
             lexema += char
             html += '<font color="#6c7d9c">' + lexema + "</font>"
             estado = 0
             lexema = ""
 
         elif estado == 17:
-            print(lexema + " String")
+            #print(lexema + " String")
             lexema += char
             html += '<font color="#8BCD5B">' + lexema + "</font>"
             estado = 0
             lexema = ""
 
         elif estado == 18:
-            print(lexema + " blank space")
+            #print(lexema + " blank space")
             html += lexema
             estado = 0
             index -= 1
             lexema = ""
 
         elif estado == 19:
-            print("error")
+            #print("error")
+            pass
 
         index += 1
 
